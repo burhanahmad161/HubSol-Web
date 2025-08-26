@@ -77,7 +77,7 @@ const WhyChooseUs = () => {
 
                 {/* Right Section */}
                 <motion.div
-                    initial={{ opacity: 0, x: 60 }}
+                    initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.7 }}
                     viewport={{ once: true }}
