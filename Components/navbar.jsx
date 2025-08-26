@@ -116,7 +116,22 @@ export default function Navbar() {
                     {/* Mobile Links */}
                     <ul className="flex flex-col space-y-6 text-lg font-medium text-black">
                         <li onClick={() => setIsOpen(false)}>Home</li>
-                        <li onClick={() => setIsOpen(false)}>About Us</li>
+                        <li>
+                            <button
+                                className="flex justify-between w-full"
+                                onClick={() => setActiveDropdown(activeDropdown === "blogs" ? null : "blogs")}
+                            >
+                                About Us <ChevronDown size={18} />
+                            </button>
+                            {activeDropdown === "blogs" && (
+                                <ul className="pl-4 mt-2 space-y-2">
+                                    {blogs.map((item) => (
+                                        <li key={item}>{item}</li>
+                                    ))}
+                                </ul>
+                            )}
+                        </li>
+
 
                         {/* Services Expand/Collapse */}
                         <li>
@@ -151,23 +166,9 @@ export default function Navbar() {
                                 </ul>
                             )}
                         </li>
+                        <li onClick={() => setIsOpen(false)}>Blog</li>
 
                         {/* Blog Expand/Collapse */}
-                        <li>
-                            <button
-                                className="flex justify-between w-full"
-                                onClick={() => setActiveDropdown(activeDropdown === "blogs" ? null : "blogs")}
-                            >
-                                Blog <ChevronDown size={18} />
-                            </button>
-                            {activeDropdown === "blogs" && (
-                                <ul className="pl-4 mt-2 space-y-2">
-                                    {blogs.map((item) => (
-                                        <li key={item}>{item}</li>
-                                    ))}
-                                </ul>
-                            )}
-                        </li>
 
                         <li onClick={() => setIsOpen(false)}>Contact Us</li>
                     </ul>
